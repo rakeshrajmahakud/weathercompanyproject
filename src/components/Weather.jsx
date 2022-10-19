@@ -107,12 +107,12 @@ const Weather = () => {
             >
               <div className="drop-shadow-lg">
                 <div className="">
-                  <img src={`https://openweathermap.org/img/wn/${weatherinfo.icon}@2x.png`} alt="" className="w-28" />
+                  <img src={`https://openweathermap.org/img/wn/${weatherinfo.icon}@2x.png`} alt="" className="" />
                 </div>
                 <h2 className="mt-2 font-bold">{weatherinfo?.heading}</h2>
                 <h2 className=" ">{weatherinfo?.desc}</h2>
               </div>
-              <div className="font-bold text-6xl drop-shadow-lgtext-slate-100">
+              <div className="font-bold sm:text-6xl text-4xl drop-shadow-lgtext-slate-100">
                 {weatherinfo?.temp}
                 <div className="absolute text-[25px] right-6 top-[125px]">
                   <TbTemperatureCelsius />
