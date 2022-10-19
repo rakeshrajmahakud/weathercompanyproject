@@ -112,9 +112,9 @@ const Weather = () => {
                 <h2 className="mt-2 font-bold">{weatherinfo?.heading}</h2>
                 <h2 className=" ">{weatherinfo?.desc}</h2>
               </div>
-              <div className="font-bold sm:text-6xl text-4xl drop-shadow-lgtext-slate-100">
+              <div className="font-bold sm:text-6xl text-4xl mr-4 drop-shadow-lgtext-slate-100">
                 {weatherinfo?.temp}
-                <div className="absolute text-[25px] right-6 top-[125px]">
+                <div className="absolute text-[25px] right-6 top-[135px]">
                   <TbTemperatureCelsius />
                 </div>
               </div>
