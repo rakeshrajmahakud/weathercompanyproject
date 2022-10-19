@@ -4,7 +4,6 @@ import { TiLocation } from "react-icons/ti";
 import { TbTemperatureCelsius } from "react-icons/tb";
 import { WiHumidity, WiBarometer } from "react-icons/wi";
 import axios from "axios";
-import fewclouds02D from "./assets/fewclouds02D.webp";
 import { MagnifyingGlass } from "react-loader-spinner";
 
 const Weather = () => {
