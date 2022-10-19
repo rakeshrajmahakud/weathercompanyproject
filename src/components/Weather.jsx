@@ -15,23 +15,24 @@ const Weather = () => {
   const [errStrip, setErrorSripe] = useState(false);
 
   const fetchdata = async (cityname = "bhadrak") => {
-    let apikey = "cba4aa50095dd727906917d9f8062afd";
+    let apikey = "ba73afc5e719ded46f04d35ce014c003";
 
     try {
       setIsloading(true);
       let weatherdata = await axios.get(
-        `http://api.weatherstack.com/current?access_key=${apikey}&query=${cityname}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apikey}&units=metric`
       );
-
+      
       setWeatherInfo({
-        cityname: weatherdata.data.location.name,
-        region: weatherdata.data.location.region,
-        temp: weatherdata.data.current.temperature,
-        humidity: weatherdata.data.current.humidity,
-        pressure: weatherdata.data.current.pressure,
-        wind: weatherdata.data.current.wind_speed,
-        desc: weatherdata.data.current.weather_descriptions[0],
-        icon: weatherdata.data.current.weather_icons[0],
+        cityname: weatherdata.data.name,
+        region: weatherdata.data.sys.country,
+        temp: weatherdata.data.main.temp,
+        humidity: weatherdata.data.main.humidity,
+        pressure: weatherdata.data.main.pressure,
+        wind: weatherdata.data.wind.speed,
+        heading: weatherdata.data.weather[0].main,
+        desc: weatherdata.data.weather[0].description,
+        icon: weatherdata.data.weather[0].icon,
       });
       setIsloading(false);
     } catch (e) {
@@ -40,7 +41,6 @@ const Weather = () => {
       setIsloading(false);
     }
   };
-
   const timeDateFunc = () => {
     const date = new Date();
     setDateTime({
@@ -71,7 +71,7 @@ const Weather = () => {
           errStrip ? "top-5" : "-top-20"
         }  duration-300 text-center absolute flex items-center justify-center shadow-xl p-3`}
       >
-        Enter valid City Name{" "}
+        Enter valid City Name
         <button
           className="px-2 py-1 ml-2 bg-red-400 rounded-md text-red-600 "
           onClick={() => setErrorSripe(false)}
@@ -107,13 +107,14 @@ const Weather = () => {
             >
               <div className="drop-shadow-lg">
                 <div className="">
-                  <img src={fewclouds02D} alt="" className="w-28" />
+                  <img src={`https://openweathermap.org/img/wn/${weatherinfo.icon}@2x.png`} alt="" className="w-28" />
                 </div>
-                <h2 className="mt-2 font-bold">{weatherinfo?.desc}</h2>
+                <h2 className="mt-2 font-bold">{weatherinfo?.heading}</h2>
+                <h2 className=" ">{weatherinfo?.desc}</h2>
               </div>
               <div className="font-bold text-6xl drop-shadow-lgtext-slate-100">
                 {weatherinfo?.temp}
-                <div className="absolute text-[25px] right-6 sm:top-[100px] top-[110px]">
+                <div className="absolute text-[25px] right-6 top-[125px]">
                   <TbTemperatureCelsius />
                 </div>
               </div>
@@ -187,3 +188,6 @@ const Weather = () => {
 };
 
 export default Weather;
+
+
+
