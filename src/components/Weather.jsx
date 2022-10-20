@@ -111,7 +111,7 @@ const Weather = () => {
                 <h2 className="mt-2 font-bold">{weatherinfo?.heading}</h2>
                 <h2 className=" ">{weatherinfo?.desc}</h2>
               </div>
-              <div className="font-bold sm:text-6xl text-4xl mr-4 drop-shadow-lgtext-slate-100">
+              <div className="font-bold sm:text-5xl text-4xl mr-4 drop-shadow-lgtext-slate-100">
                 {weatherinfo?.temp}
                 <div className="absolute text-[25px] right-6 top-[135px]">
                   <TbTemperatureCelsius />
@@ -162,7 +162,7 @@ const Weather = () => {
             </div>
 
             {/* searchbar */}
-            <div className="rounded-full flex bg-white px-1 mb-4 overflow-hidden items-center shadow-lg w-full ">
+            <div className="rounded-full flex bg-white px-1 mb-8 overflow-hidden items-center shadow-lg w-full ">
               <input
                 type="text"
                 className="py-2 outline-none mx-3 w-full placeholder:text-center text-center"
